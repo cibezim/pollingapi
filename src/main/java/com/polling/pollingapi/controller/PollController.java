@@ -26,7 +26,7 @@ public class PollController {
         return new ResponseEntity<>(allPolls, HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/polls")
     public ResponseEntity<?> createPoll(@RequestBody Poll poll) {
         poll = pollRepository.save(poll);
         HttpHeaders responseHeaders = new HttpHeaders();

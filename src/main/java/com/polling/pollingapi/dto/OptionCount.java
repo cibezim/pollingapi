@@ -4,8 +4,6 @@ public class OptionCount {
     private Long optionId;
     private int count;
 
-    // Getters and Setters omitted for brevity
-
     public Long getOptionId() {
         return optionId;
     }

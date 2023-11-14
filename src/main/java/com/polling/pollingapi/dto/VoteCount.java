@@ -7,7 +7,6 @@ public class VoteCount {
     private int totalVotes;
     private Collection<OptionCount> results;
 
-    // Getters and Setters omitted for brevity
 
     public int getTotalVotes() {
         return totalVotes;

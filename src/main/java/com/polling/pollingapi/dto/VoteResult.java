@@ -7,7 +7,6 @@ public class VoteResult {
     private int totalVotes;
     private Collection<OptionCount> results;
 
-    // Constructors, getters, and setters
 
     public VoteResult() {
     }

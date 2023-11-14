@@ -34,7 +34,6 @@ public class PollService {
         Poll existingPoll = pollRepository.findById(pollId)
                 .orElseThrow(() -> new RuntimeException("Poll not found with id: " + pollId));
 
-        // Update properties of the existing poll with properties from the updated poll
         existingPoll.setQuestion(updatedPoll.getQuestion());
         existingPoll.setOptions(updatedPoll.getOptions());
 
