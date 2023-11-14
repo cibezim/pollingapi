@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  world_x:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: 'root' # make sure it's surrounded by single quotes
+      MYSQL_ROOT_PASSWORD: 'madison326' # make sure it's surrounded by single quotes
+    ports:
+      - "3307:3306"
+    expose:
+      - '3307'
+    volumes:
+      - mysql-volume:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  mysql-volume:
