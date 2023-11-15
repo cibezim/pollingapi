@@ -13,7 +13,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/polls/{pollId}/votes")
 public class VoteController {
 
     private final VoteRepository voteRepository;
@@ -23,7 +22,7 @@ public class VoteController {
         this.voteRepository = voteRepository;
     }
 
-    @PostMapping
+    @PostMapping("/polls/{pollId}/votes")
     public ResponseEntity<?> createVote(@PathVariable Long pollId, @RequestBody Vote vote) {
         vote = voteRepository.save(vote);
         HttpHeaders responseHeaders = new HttpHeaders();
@@ -35,7 +34,7 @@ public class VoteController {
         return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
     }
 
-    @GetMapping
+    @GetMapping("/polls/{pollId}/votes")
     public ResponseEntity<Iterable<Vote>> getAllVotes(@PathVariable Long pollId) {
         Iterable<Vote> votes = voteRepository.findByPollId(pollId);
         return new ResponseEntity<>(votes, HttpStatus.OK);

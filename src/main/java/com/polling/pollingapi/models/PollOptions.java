@@ -1,13 +1,17 @@
 package com.polling.pollingapi.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
+@Table(name="POLL_OPTION")
 public class PollOptions {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="OPTION_ID" )
     private Long id;
 
 
@@ -15,7 +19,8 @@ public class PollOptions {
     private String value;
 
     @ManyToOne
-    @JoinColumn(name = "poll_id")
+    @JoinColumn(name="POLL_ID")
+    @JsonBackReference
     private Poll poll;
 
     public PollOptions() {

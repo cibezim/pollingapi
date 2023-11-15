@@ -1,16 +1,12 @@
 package com.polling.pollingapi.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.Set;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
+import javax.persistence.*;
 
 @Entity
+@Table(name="Poll")
 public class Poll {
 
     @Id
@@ -24,6 +20,7 @@ public class Poll {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "POLL_ID")
     @OrderBy
+    @JsonManagedReference
     private Set<PollOptions> options;
 
     public Poll() {
